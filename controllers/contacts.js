@@ -33,14 +33,14 @@ exports.updateContact = asyncHandler(async (req, res, next) => {
     return next(new AppError(`Not authorized to get this contact`, 401))
   }
 
-  await Contact.findByIdAndUpdate(req.params.id, req.body, {
+  const newContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true
   })
 
   res.status(200).json({
     success: true,
-    data: contact
+    data: newContact
   })
 })
 

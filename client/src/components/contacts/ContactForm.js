@@ -28,12 +28,8 @@ const ContactForm = () => {
 
   const {name, email, phone, type} = contact
 
-  const onChange = e => {
-    setContact({
-      ...contact,
-      [e.target.name]: e.target.value
-    })
-  }
+  const onChange = e =>
+    setContact({ ...contact, [e.target.name]: e.target.value })
 
   const onSubmit = e => {
     e.preventDefault()
@@ -43,12 +39,7 @@ const ContactForm = () => {
     } else {
       updateContact(contact)
     }
-    setContact({
-      name: '',
-      email: '',
-      phone: '',
-      type: 'personal'
-    })
+    clearAll();
   }
 
   const clearAll = () => {

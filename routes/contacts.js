@@ -10,6 +10,6 @@ router
 
 router
   .route('/:id')
-  .put(protect, contactController.getContacts)
-  .delete(protect, contactController.addContact)
+  .put(protect, contactController.updateContact)
+  .delete(protect, contactController.deleteContact)
 module.exports = router
